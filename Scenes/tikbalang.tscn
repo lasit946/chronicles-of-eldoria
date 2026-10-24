@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1"]
+[ext_resource type="Texture2D" path="res://Assets/tikbalang.png" id="2"]
+[ext_resource type="Texture2D" path="res://Assets/shadow.png" id="3"]
+
+[sub_resource type="CircleShape2D" id="shape"]
+radius = 6
+
+[node name="Tikbalang" type="CharacterBody2D"]
+script = ExtResource("1")
+max_hp = 4
+speed = 34.0
+aggro_range = 135.0
+charger = true
+charge_speed = 200.0
+drop_chance = 0.7
+blood_color = Color(0.8, 0.55, 0.3, 1)
+
+[node name="Shadow" type="Sprite2D" parent="."]
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("3")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -12)
+texture = ExtResource("2")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("shape")
